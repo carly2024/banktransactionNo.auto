@@ -8,22 +8,22 @@ https://docs.google.com/spreadsheets/d/1Pia4XW0nYFE-VCr6Rl7U-1axcLJFCHc_48HiG3z4
 
 |行|摘要|AA(PDF)|AB|根拠|確度|
 |---|---|---|---|---|---|
-|5113|Paypay 9月分売上(ゴルフ宝来) 入金|1sI-Xtyx5s3EOd3wZP77N0rYq1o-wqdmA|p28 row23|154 PDF読取 10/2 PAYPAY 29,557円(台帳比0.978)|高|
-|5791|Paypay 10月分売上(ゴルフ宝来) 入金|1sI-Xtyx5s3EOd3wZP77N0rYq1o-wqdmA|p31 row1|154 PDF読取 11/5 PAYPAY 24,921円|高|
+|5113|Paypay 9月分売上(ゴルフ宝来) 入金|1sI-Xtyx5s3EOd3wZP77N0rYq1o-wqdmA|p28 row25|154 PDF読取 10/2 PAYPAY 29,557円(台帳比0.978)|高|
+|5791|Paypay 10月分売上(ゴルフ宝来) 入金|1sI-Xtyx5s3EOd3wZP77N0rYq1o-wqdmA|p31 row3|154 PDF読取 11/5 PAYPAY 24,921円|高|
 |6439|Paypay 11月分売上(ゴルフ宝来) 入金|1j8p2DG6oxJS8nEnM1KAeiZpyjr1asaVC|p1 row1|154 PDF読取 12/2 PAYPAY 26,884円|中〜高|
-|5337|Paypay カフェ宝来 10月分 売上計上|DQsZ3qOlKQMRPYy_3_C-8KS7gupygGyg|p1 row2 002|同月入金行からコピー: S1 5792-5797(11/5入金行)|高|
-|5338|Paypay ビールと羊 10月分 売上計上|DQsZ3qOlKQMRPYy_3_C-8KS7gupygGyg|p1 row2 002|同月入金行からコピー: S1 5792-5797(11/5入金行)|高|
-|5339|Paypay S木津 10月分 売上計上|DQsZ3qOlKQMRPYy_3_C-8KS7gupygGyg|p1 row2 002|同月入金行からコピー: S1 5792-5797(11/5入金行)|高|
-|5340|Paypay S宝来 10月分 売上計上|DQsZ3qOlKQMRPYy_3_C-8KS7gupygGyg|p1 row2 002|同月入金行からコピー: S1 5792-5797(11/5入金行)|高|
-|5341|Paypay S生駒 10月分 売上計上|DQsZ3qOlKQMRPYy_3_C-8KS7gupygGyg|p1 row2 002|同月入金行からコピー: S1 5792-5797(11/5入金行)|高|
-|5342|Paypay ガーデン宝来 10月分 売上計上|DQsZ3qOlKQMRPYy_3_C-8KS7gupygGyg|p1 row1 001|G宝来 個別入金行からコピー: S1 5792-5797(11/5入金行)|高|
+|5337|Paypay カフェ宝来 10月分 売上計上|1DQsZ3qOlKQMRPYy_3_C-8KS7gupygGyg|p1 row2 002|同月入金行からコピー: S1 5792-5797(11/5入金行)|高|
+|5338|Paypay ビールと羊 10月分 売上計上|1DQsZ3qOlKQMRPYy_3_C-8KS7gupygGyg|p1 row2 002|同月入金行からコピー: S1 5792-5797(11/5入金行)|高|
+|5339|Paypay S木津 10月分 売上計上|1DQsZ3qOlKQMRPYy_3_C-8KS7gupygGyg|p1 row2 002|同月入金行からコピー: S1 5792-5797(11/5入金行)|高|
+|5340|Paypay S宝来 10月分 売上計上|1DQsZ3qOlKQMRPYy_3_C-8KS7gupygGyg|p1 row2 002|同月入金行からコピー: S1 5792-5797(11/5入金行)|高|
+|5341|Paypay S生駒 10月分 売上計上|1DQsZ3qOlKQMRPYy_3_C-8KS7gupygGyg|p1 row2 002|同月入金行からコピー: S1 5792-5797(11/5入金行)|高|
+|5342|Paypay ガーデン宝来 10月分 売上計上|1DQsZ3qOlKQMRPYy_3_C-8KS7gupygGyg|p1 row1 001|G宝来 個別入金行からコピー: S1 5792-5797(11/5入金行)|高|
 |6034|Paypay カフェ宝来 11月分 売上計上|15eutzxCsCFNwldgcKkmDBFcdewIFJ6yQ|p1 row2 002|同月入金行からコピー: S1 6429-6434(12/2入金行)|高|
 |6035|Paypay ビールと羊 11月分 売上計上|15eutzxCsCFNwldgcKkmDBFcdewIFJ6yQ|p1 row2 002|同月入金行からコピー: S1 6429-6434(12/2入金行)|高|
 |6036|Paypay S木津 11月分 売上計上|15eutzxCsCFNwldgcKkmDBFcdewIFJ6yQ|p1 row2 002|同月入金行からコピー: S1 6429-6434(12/2入金行)|高|
 |6037|Paypay S宝来 11月分 売上計上|15eutzxCsCFNwldgcKkmDBFcdewIFJ6yQ|p1 row2 002|同月入金行からコピー: S1 6429-6434(12/2入金行)|高|
 |6038|Paypay S生駒 11月分 売上計上|15eutzxCsCFNwldgcKkmDBFcdewIFJ6yQ|p1 row2 002|同月入金行からコピー: S1 6429-6434(12/2入金行)|高|
 |6039|Paypay ガーデン宝来 11月分 売上計上|15eutzxCsCFNwldgcKkmDBFcdewIFJ6yQ|p1 row1 001|G宝来 個別入金行からコピー: S1 6429-6434(12/2入金行)|高|
-|5343|Paypay ゴルフ宝来 10月分 売上計上|1sI-Xtyx5s3EOd3wZP77N0rYq1o-wqdmA|p31 row1|5791(入金行)と同じ|高|
+|5343|Paypay ゴルフ宝来 10月分 売上計上|1sI-Xtyx5s3EOd3wZP77N0rYq1o-wqdmA|p31 row3|5791(入金行)と同じ|高|
 |6040|Paypay ゴルフ宝来 11月分 売上計上|1j8p2DG6oxJS8nEnM1KAeiZpyjr1asaVC|p1 row1|6439(入金行)と同じ|中〜高|
 |6749|Paypay カフェ宝来 12月分 売上計上|1mROK8gG3oKwze6WUD2fbw4giNakSO-1y|p1 row4 001|S2 5777-5781(1/6入金行)からコピー|高|
 |6750|Paypay ビールと羊 12月分 売上計上|1mROK8gG3oKwze6WUD2fbw4giNakSO-1y|p1 row4 001|S2 5777-5781(1/6入金行)からコピー|高|
