@@ -3,6 +3,9 @@
 
 const KEY_COL = 1;            // A列 取引No
 const TARGET_COLS = [27, 28]; // AA, AB
+const ACCOUNT_HEADER = '勘定科目'; // 1行目の見出し名(この列で勘定科目を判定)
+// これらの勘定科目の行は AA に「N/A」を入れる(取引No.での補完対象外)
+const NA_ACCOUNTS = ['為替差益', '為替差損', 'EV売上', 'デジタルサイネージ売上'];
 
 function onOpen() {
   SpreadsheetApp.getUi().createMenu('取引No.補完')
@@ -29,13 +32,29 @@ function fillBankColumns() {
   const rng = sh.getRange(2, TARGET_COLS[0], n, 2);
   const vals = rng.getValues();
   const forms = rng.getFormulas();
+
+  // 勘定科目の列を見出しから特定し、N/A対象行を判定
+  const headers = sh.getRange(1, 1, 1, sh.getLastColumn()).getValues()[0].map(h => String(h).trim());
+  const accIdx = headers.indexOf(ACCOUNT_HEADER);
+  if (accIdx < 0) {
+    SpreadsheetApp.getUi().alert('1行目に「' + ACCOUNT_HEADER + '」の見出しが見つかりません。');
+    return;
+  }
+  const accounts = sh.getRange(2, accIdx + 1, n, 1).getValues().map(r => String(r[0]).trim());
+  const isNA = accounts.map(a => NA_ACCOUNTS.indexOf(a) >= 0);
+
   const isEmpty = (r, c) => forms[r][c] === '' && String(vals[r][c]).trim() === '';
 
   let filled = 0;
+  // N/A対象行: AAが空なら「N/A」を入れる
+  isNA.forEach((na, r) => {
+    if (na && isEmpty(r, 0)) { vals[r][0] = 'N/A'; filled++; }
+  });
+
   [0, 1].forEach(c => {
     const groups = {};
     keys.forEach((k, r) => {
-      if (!k) return;
+      if (!k || (c === 0 && isNA[r])) return;
       const v = String(vals[r][c]).trim();
       if (forms[r][c] === '' && v) {
         const g = groups[k] = groups[k] || [];
@@ -43,7 +62,7 @@ function fillBankColumns() {
       }
     });
     keys.forEach((k, r) => {
-      if (k && groups[k] && isEmpty(r, c)) {
+      if (k && groups[k] && isEmpty(r, c) && !(c === 0 && isNA[r])) {
         vals[r][c] = groups[k].join('\n');
         filled++;
       }
