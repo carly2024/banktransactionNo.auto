@@ -57,9 +57,14 @@ function fillBankColumns() {
   SpreadsheetApp.getActive().toast(filled + ' セルを補完しました', '取引No.補完', 5);
 }
 
-// ===== N/A対応: 特定の勘定科目の行は AA列 に「N/A」を入れる(AAに既に値がある行は上書きしない)。メニュー「取引No.補完 > N/A対応」から実行 =====
-const NA_TARGET_COL = 27;          // AA列
-const NA_ACCOUNT_HEADER = '勘定科目'; // 1行目の見出し名(この列で勘定科目を判定)
+// ===== N/A対応: 次の行は AA列 に「N/A」を入れる(AAに既に値がある行は上書きしない)。メニュー「取引No.補完 > N/A対応」から実行 =====
+//  (1) 勘定科目(C列)が NA_ACCOUNTS のいずれか
+//  (2) 勘定科目(C列)が「現金」で、相手勘定科目が「普通預金」でない
+//      相手勘定科目が「諸口」の場合は、同じ取引No.の他の行に勘定科目「普通預金」があるかで判定
+//        あれば普通預金とみなして N/A にしない / なければ N/A
+const NA_TARGET_COL = 27;               // AA列
+const NA_ACCOUNT_COL = 3;               // C列 勘定科目
+const NA_COUNTER_HEADER = '相手勘定科目'; // 1行目の見出し名(この列で相手勘定科目を判定)
 const NA_ACCOUNTS = ['為替差益', '為替差損', 'EV売上', 'デジタルサイネージ売上'];
 
 function fillNA() {
@@ -73,19 +78,36 @@ function fillNA() {
   const n = last - 1;
 
   const headers = sh.getRange(1, 1, 1, sh.getLastColumn()).getValues()[0].map(h => String(h).trim());
-  const accIdx = headers.indexOf(NA_ACCOUNT_HEADER);
-  if (accIdx < 0) {
-    SpreadsheetApp.getUi().alert('1行目に「' + NA_ACCOUNT_HEADER + '」の見出しが見つかりません。');
+  const cIdx = headers.indexOf(NA_COUNTER_HEADER);
+  if (cIdx < 0) {
+    SpreadsheetApp.getUi().alert('1行目に「' + NA_COUNTER_HEADER + '」の見出しが見つかりません。');
     return;
   }
-  const accounts = sh.getRange(2, accIdx + 1, n, 1).getValues().map(r => String(r[0]).trim());
+  const keys = sh.getRange(2, KEY_COL, n, 1).getValues().map(r => String(r[0]).trim());
+  const accounts = sh.getRange(2, NA_ACCOUNT_COL, n, 1).getValues().map(r => String(r[0]).trim());
+  const counters = sh.getRange(2, cIdx + 1, n, 1).getValues().map(r => String(r[0]).trim());
+
+  // 取引No.ごとに、勘定科目が「普通預金」の行の位置を集める(諸口の判定用)
+  const depositRows = {};
+  keys.forEach((k, r) => {
+    if (k && accounts[r] === '普通預金') (depositRows[k] = depositRows[k] || []).push(r);
+  });
+  const hasOtherDeposit = (k, r) => (depositRows[k] || []).some(x => x !== r);
+
   const rng = sh.getRange(2, NA_TARGET_COL, n, 1);
   const vals = rng.getValues();
   const forms = rng.getFormulas();
 
   let filled = 0;
   accounts.forEach((a, r) => {
-    if (NA_ACCOUNTS.indexOf(a) >= 0 && forms[r][0] === '' && String(vals[r][0]).trim() === '') {
+    let na = NA_ACCOUNTS.indexOf(a) >= 0;
+    if (!na && a === '現金') {
+      const c = counters[r];
+      if (c === '普通預金') na = false;
+      else if (c === '諸口') na = !hasOtherDeposit(keys[r], r);
+      else na = true;
+    }
+    if (na && forms[r][0] === '' && String(vals[r][0]).trim() === '') {
       vals[r][0] = 'N/A';
       filled++;
     }
